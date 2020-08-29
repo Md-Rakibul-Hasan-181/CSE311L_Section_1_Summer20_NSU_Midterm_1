@@ -1,15 +1,26 @@
 <?php
+$MySQLi_connection=new MySqli('localhost','root','','test');
+if($MySQLi_connection -> connect_error){
+    echo "not connected,error:" .$MySQLi_connection -> connect_error;
+
+}
+echo "connected";
+?>
+<?php
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "mid_term_su";
-// Create connection
+# Create connection
 $conn = new mysqli($servername, $username, $password);
-// Check connection
+
+
+#Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-// Create database
+
+#Create database
 $sql = "CREATE DATABASE mid_term_su";
 if ($conn->query($sql) === TRUE) {
   echo "Database created successfully";
@@ -19,13 +30,13 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 
 
-// Create connection
+#Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
+# Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-// sql to create table
+# sql to create table
 $sql = "CREATE TABLE Student (
     snum decimal(9, 0)  PRIMARY KEY NOT NULL,
     sname VARCHAR(30),
@@ -43,9 +54,9 @@ $conn->close();
 
 
 
-// Create connection
+# Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
+# Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
